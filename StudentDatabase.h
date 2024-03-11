@@ -17,6 +17,7 @@ public:
 	void RemoveStudent();
 	void PrintStudents();
 	Student GetStudent(int index);
+	Student* GetStudentByUIN(int UIN);
 	auto SizeStudents();
 };
 

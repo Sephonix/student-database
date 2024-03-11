@@ -4,10 +4,13 @@
 
 #include "Student.h"
 #include "StudentDatabase.h"
+#include "Course.h"
+#include "Enrollment.h"
+
 
 void ClearInputStream();
 void PrintStudentMenu(StudentDatabase db);
-void PrintCourseMenu();
+void PrintCourseMenu(StudentDatabase db);
 void ClearConsole();
 
 
@@ -16,6 +19,7 @@ int main() {
     //Create student database
     int ProgramState = -1;
     StudentDatabase db;
+
 
     //Begin the main program loop
     while (ProgramState != 0) {
@@ -41,7 +45,7 @@ int main() {
             break;
         case 2:
             ClearConsole();
-            PrintCourseMenu();
+            PrintCourseMenu(db);
             break;
 
         default:
@@ -94,8 +98,9 @@ void PrintStudentMenu(StudentDatabase db) {
         }
     }
 }
-void PrintCourseMenu() {
+void PrintCourseMenu(StudentDatabase db) {
     int choice = -1;
+    Enrollment enrollment;
     while (choice != 0) {
         ClearConsole();
         cout << "------ Course Database ------\n";
@@ -103,6 +108,7 @@ void PrintCourseMenu() {
         cout << "(1) Create a Course    (WIP)\n";
         cout << "(2) Remove a Course    (WIP)\n";
         cout << "(3) List Courses       (WIP)\n";
+        cout << "(4) Enroll Student     (WIP)\n";
         cout << "Enter your choice: ";
         if (!(cin >> choice)) {
             ClearInputStream();
@@ -116,6 +122,8 @@ void PrintCourseMenu() {
             break;
         case 1:
             cout << "Creating a course\n";
+            //TODO: Implement course creation
+            //course.CreateCourse();
             break;
         case 2:
             cout << "Removing a course\n";
@@ -123,6 +131,10 @@ void PrintCourseMenu() {
         case 3:
             ClearConsole();
             break;
+        case 4:
+			cout << "Enrolling a student\n";         
+			break;
+
         default:
             cout << "Invalid choice\n";
         }

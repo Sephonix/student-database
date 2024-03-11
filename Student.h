@@ -4,21 +4,21 @@
 #define STUDENT_H
 
 #include <string>
+#include "Enrollment.h"
 
 enum StudentClassification { Freshman, Sophomore, Junior, Senior, Graduated };
-enum CourseSubject { MATH, CHEM, PHYS, HIST, ENGL, ENGN, ECE, CS, POLS };
 
 class Student {
 public:
 	std::string FirstName;
 	std::string LastName;
 	StudentClassification Year;
-
 	int UIN;
 	bool CurrentlyEnrolled;
 	int GraduationYear;
-
 	float GPA;
+
+	std::vector<Enrollment> Enrollments; //List of courses the student is enrolled in
 
 	//constructors
 	Student();
@@ -34,22 +34,7 @@ public:
 	}
 
 	void PrintStudentInfo();
-	void RegisterClass();
-	void DeregisterClass();
+	void EnrollCourse(Course* course);
 };
-
-
-class Course {
-public:
-	CourseSubject Subject;
-	int ID;
-	std::string Name;
-};
-
-void LoadStudentInfo();
-void SaveStudentInfo();
-
-void CreateCourse(CourseSubject courseSubject, int courseID, std::string courseName);
-void DeleteCourse(CourseSubject courseSubject, int courseID);
 
 #endif // !STUDENT_

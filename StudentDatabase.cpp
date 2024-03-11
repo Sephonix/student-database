@@ -36,6 +36,15 @@ Student StudentDatabase::GetStudent(int index) {
 	return students[index];
 }
 
+Student* StudentDatabase::GetStudentByUIN(int UIN) {
+	for (int i = 0; i < students.size(); ++i) {
+		if (students[i].UIN == UIN) {
+			return &students[i];
+		}
+	}
+	return nullptr;
+}
+
 void StudentDatabase::PrintStudents() {
 	if (students.empty()) {
 		std::cout << "No students in the database.\n";
@@ -54,7 +63,7 @@ void StudentDatabase::CreateStudent() {
 	int uin, graduationYear, classificationInput;
 	float gpa;
 	bool enrolled;
-	Student tempStudent("", "", Freshman, 0, false, 0, 0.0); //Create a dummy student to store the input
+	Student tempStudent("", "", Freshman, 0, false, 0, 0.0); //Create a dummy student object
 	std::cout << "------ Add a Student ------\n";
 
 	std::cout << "First Name: ";
