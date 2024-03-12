@@ -127,15 +127,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Course.cpp" />
-    <ClCompile Include="GradeBook.cpp" />
+    <ClCompile Include="CourseDatabase.cpp" />
     <ClCompile Include="Main.cpp" />
-    <ClCompile Include="Student.cpp" />
     <ClCompile Include="StudentDatabase.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Course.h" />
-    <ClInclude Include="GradeBook.h" />
+    <ClInclude Include="CourseDatabase.h" />
     <ClInclude Include="Student.h" />
     <ClInclude Include="StudentDatabase.h" />
   </ItemGroup>

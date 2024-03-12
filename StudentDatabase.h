@@ -1,9 +1,5 @@
 #pragma once
 
-#ifndef STUDENTDATABASE_H
-#define STUDENTDATABASE_H
-
-
 #include <vector>
 #include "Student.h"
 
@@ -19,6 +15,7 @@ public:
 	Student GetStudent(int index);
 	Student* GetStudentByUIN(int UIN);
 	auto SizeStudents();
-};
 
-#endif // !STUDENTDATABASE_H
+	void WriteToCSV(const std::string& fileName) const;
+	void LoadFromCSV(const std::string& fileName);
+};

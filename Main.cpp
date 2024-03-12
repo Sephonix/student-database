@@ -5,11 +5,12 @@
 #include "Student.h"
 #include "StudentDatabase.h"
 #include "Course.h"
+#include "CourseDatabase.h"
 
 
 void ClearInputStream();
-void PrintStudentMenu(StudentDatabase db);
-void PrintCourseMenu(StudentDatabase db);
+void PrintStudentMenu(StudentDatabase studentDatabase);
+void PrintCourseMenu(CourseDatabase courseDatabase);
 void ClearConsole();
 
 
@@ -17,8 +18,10 @@ using namespace std;
 int main() {
     //Create student database
     int ProgramState = -1;
-    StudentDatabase db;
+    StudentDatabase sdb;
+    CourseDatabase cdb;
 
+    //TODO: Load Databases from CSV
 
     //Begin the main program loop
     while (ProgramState != 0) {
@@ -40,13 +43,12 @@ int main() {
             break;
         case 1:
             ClearConsole();
-            PrintStudentMenu(db);
+            PrintStudentMenu(sdb);
             break;
         case 2:
             ClearConsole();
-            PrintCourseMenu(db);
+            PrintCourseMenu(cdb);
             break;
-
         default:
             cout << "Invalid Choice\n";
             break;
@@ -61,7 +63,7 @@ void ClearInputStream() {
     cin.ignore(numeric_limits<streamsize>::max(), '\n');
 }
 
-void PrintStudentMenu(StudentDatabase db) {
+void PrintStudentMenu(StudentDatabase studentDatabase) {
     int choice = -1;
     while (choice != 0) {
         cout << "------ Student Database ------\n";
@@ -82,30 +84,34 @@ void PrintStudentMenu(StudentDatabase db) {
             break;
         case 1:
             ClearConsole();
-            db.CreateStudent();
+            studentDatabase.CreateStudent();
+
+            //TODO: Figure out a better way to handle writing to CSV
+            studentDatabase.WriteToCSV("student_database.csv");
             break;
         case 2:
             ClearConsole();
-            db.RemoveStudent();
+            studentDatabase.RemoveStudent();
             break;
         case 3:
             ClearConsole();
-            db.PrintStudents();
+            studentDatabase.PrintStudents();
             break;
         default:
             cout << "Invalid choice\n";
         }
     }
 }
-void PrintCourseMenu(StudentDatabase db) {
+
+void PrintCourseMenu(CourseDatabase courseDatabase) {
+
     int choice = -1;
     while (choice != 0) {
-        ClearConsole();
         cout << "------ Course Database ------\n";
         cout << "(0) <--- Go back\n";
-        cout << "(1) Create a Course    (WIP)\n";
-        cout << "(2) Remove a Course    (WIP)\n";
-        cout << "(3) List Courses       (WIP)\n";
+        cout << "(1) Create a Course\n";
+        cout << "(2) Remove a Course\n";
+        cout << "(3) List Courses\n";
         cout << "(4) Enroll Student     (WIP)\n";
         cout << "Enter your choice: ";
         if (!(cin >> choice)) {
@@ -119,20 +125,25 @@ void PrintCourseMenu(StudentDatabase db) {
             ClearConsole();
             break;
         case 1:
-            cout << "Creating a course\n";
-            //TODO: Implement course creation
-            //course.CreateCourse();
+            ClearConsole();
+            courseDatabase.CreateCourse();
+
+            //TODO: Figure out a better way to handle writing to CSV
+            courseDatabase.WriteToCSV("course_database.csv");
             break;
         case 2:
-            cout << "Removing a course\n";
+            ClearConsole();
+            courseDatabase.RemoveCourse();
             break;
         case 3:
             ClearConsole();
+            courseDatabase.PrintCourses();
             break;
         case 4:
-			cout << "Enrolling a student\n";         
+            ClearConsole();
+			cout << "Enrolling a student\n";
+            //TODO: Figure out how to enroll students in a course
 			break;
-
         default:
             cout << "Invalid choice\n";
         }
