@@ -4,7 +4,7 @@
 #define STUDENT_H
 
 #include <string>
-#include "Enrollment.h"
+#include "Course.h"
 
 enum StudentClassification { Freshman, Sophomore, Junior, Senior, Graduated };
 
@@ -18,7 +18,7 @@ public:
 	int GraduationYear;
 	float GPA;
 
-	std::vector<Enrollment> Enrollments; //List of courses the student is enrolled in
+	//std::vector<Enrollment> Enrollments; //List of courses the student is enrolled in
 
 	//constructors
 	Student();
@@ -33,7 +33,7 @@ public:
 		GPA = gpa;
 	}
 
-	void PrintStudentInfo();
+	void PrintStudentInfo() const;
 	void EnrollCourse(Course* course);
 };
 

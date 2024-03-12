@@ -5,7 +5,6 @@
 #include "Student.h"
 #include "StudentDatabase.h"
 #include "Course.h"
-#include "Enrollment.h"
 
 
 void ClearInputStream();
@@ -100,7 +99,6 @@ void PrintStudentMenu(StudentDatabase db) {
 }
 void PrintCourseMenu(StudentDatabase db) {
     int choice = -1;
-    Enrollment enrollment;
     while (choice != 0) {
         ClearConsole();
         cout << "------ Course Database ------\n";

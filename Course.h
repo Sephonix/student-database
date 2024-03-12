@@ -7,11 +7,12 @@ private:
 	std::vector<Course> courses;
 
 public:
-	std::vector<Enrollment> EnrolledStudents;
+	//std::vector<Enrollment> EnrolledStudents;
 	std::string Subject;
 	std::string ID;
 	std::string Semester;
 	int Year;
+
 	Course();
 	Course(std::string subject, std::string id, std::string semester, int year) {
 		Subject = subject;
@@ -23,6 +24,6 @@ public:
 	void RemoveCourse();
 	void PrintCourses();
 	void PrintCourseInfo();
-	void AddStudent(Student* student);
+	//void AddStudent(Student* student);
 };
 

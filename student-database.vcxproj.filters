@@ -27,9 +27,6 @@
     <ClCompile Include="Course.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Enrollment.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="GradeBook.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -42,9 +39,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Course.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Enrollment.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="GradeBook.h">
